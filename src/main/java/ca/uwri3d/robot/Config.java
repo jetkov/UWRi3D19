@@ -15,7 +15,7 @@ public class Config {
 	public final static int CAN_ID_BIG_SWING_MOTOR_A = 12;
 	public final static int CAN_ID_BIG_SWING_MOTOR_B = 17;
 	public final static int CAN_ID_BIGGER_SWING_MOTOR = 11;
-	public final static int CAN_ID_BIG_BALLER_MOTOR = 10;
+	public final static int CAN_ID_BIG_BALLER_MOTOR = 18;
 
 	// Solenoid IDs
 	public final static int SOLENOID_ID_LITTLE_FISTS_A = 0;

@@ -21,27 +21,18 @@ public class IO {
 
 	public IO() {
 
-xboxController.getPOV();
-
-
-// Eject hatch cover
-// Intake ball
-// Shoot ball
-
 		// Button mappings
 		JoystickButton a = new JoystickButton(xboxController, 1); // Eject hatch cover
-		JoystickButton b = new JoystickButton(xboxController, 2); 
+		JoystickButton b = new JoystickButton(xboxController, 2); // Switch from hatch cover arm to cargo arm control
 		JoystickButton x = new JoystickButton(xboxController, 3); // Intake ball
 		JoystickButton y = new JoystickButton(xboxController, 4); // Eject ball
-		JoystickButton lStickButton = new JoystickButton(xboxController, 9); // Switch from hatch cover arm to cargo arm control
 
 		// Button actions
-		a.whenPressed(new LittleFistsPunch());
-		a.whenReleased(new LittleFistsIn());
+		a.whileHeld(new LittleFistsPunch());
+		a.whileHeld(new LittleFistsIn());
 		x.whileHeld(new BallIn());
 		y.whileHeld(new BallOut());
-		lStickButton.whenPressed(new ControlBiggerSwing());
-		lStickButton.whenReleased(new ControlBigSwing());
+		b.toggleWhenPressed(new ControlBiggerSwing());
 
 	}
 

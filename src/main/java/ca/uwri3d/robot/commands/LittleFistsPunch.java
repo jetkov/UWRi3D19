@@ -18,7 +18,8 @@ public class LittleFistsPunch extends InstantCommand {
 	}
 
 	@Override
-	protected void end() {
-		Robot.littleFists.off();
-	}
+	protected void end() {}
+
+	@Override
+	protected void interrupted() {}
 }

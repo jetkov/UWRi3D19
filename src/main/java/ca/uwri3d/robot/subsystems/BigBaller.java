@@ -19,6 +19,7 @@ public class BigBaller extends Subsystem {
 	public void setSpeed(double speed) {
 		motor.set(speed);
 	}
+
 	public void stop() {
 		motor.set(0);
 	}

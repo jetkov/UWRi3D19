@@ -42,18 +42,14 @@ public class ControllerArcadeDrive extends Command {
 		moveValue = moveValue * (Config.THROTTLE_PERCENTAGE / 100);
 
 		// Grabs the left stick 'x' value.
-		rotateValue = controller.getX(GenericHID.Hand.kLeft);
+		rotateValue = controller.getX(GenericHID.Hand.kRight);
 		// Squares and multiplies this value by the set sensitivity value in
 		// 'Config'.
 		// This makes turning easier to control.
 		rotateValue = (rotateValue * Math.abs(rotateValue)) * (Config.ROTATE_PERCENTAGE / 100);
 
-		// If the 'X' button is pressed, the left and right trigger controls are
-		// effectively switched.
-		if (controller.getXButton()) {
-			Robot.littleWhip.arcadeDrive(moveValue, rotateValue, true);
-		} else
-			Robot.littleWhip.arcadeDrive(-moveValue, rotateValue, true);
+		// Drive the robot
+		Robot.littleWhip.arcadeDrive(moveValue, rotateValue, true);
 
 	}
 
@@ -73,7 +69,6 @@ public class ControllerArcadeDrive extends Command {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
-		// Stops power to the drive train when this commend is finished
-		Robot.littleWhip.arcadeDrive(0, 0);
+		end();
 	}
 }

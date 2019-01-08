@@ -10,7 +10,7 @@ import ca.uwri3d.robot.Robot;
  */
 public class ControlBiggerSwing extends Command {
 
-	private XboxController controller = Robot.io.getXboxDrive();
+	private XboxController controller;
 
 	public ControlBiggerSwing() {
 		// Use requires() here to declare subsystem dependencies
@@ -21,12 +21,13 @@ public class ControlBiggerSwing extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		controller = Robot.io.getXboxDrive();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.bigSwing.setSpeed(-controller.getRawAxis(1));
+		Robot.biggerSwing.setSpeed(-controller.getRawAxis(1) * 0.40);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -38,12 +39,13 @@ public class ControlBiggerSwing extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		Robot.bigSwing.setSpeed(0);
+		Robot.biggerSwing.setSpeed(0);
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }

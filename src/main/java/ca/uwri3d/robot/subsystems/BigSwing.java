@@ -2,6 +2,7 @@ package ca.uwri3d.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import ca.uwri3d.robot.Config;
+import ca.uwri3d.robot.commands.ControlBigSwing;
 import edu.wpi.first.wpilibj.command.Subsystem;
 public class BigSwing extends Subsystem {
 
@@ -16,7 +17,9 @@ public class BigSwing extends Subsystem {
 	}
 	
 	@Override
-	public void initDefaultCommand() {}
+	public void initDefaultCommand() {
+		setDefaultCommand(new ControlBigSwing());
+	}
 
 	public void setSpeed(double speed) {
 		motorA.set(speed);

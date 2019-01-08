@@ -2,15 +2,12 @@ package ca.uwri3d.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import edu.wpi.first.wpilibj.XboxController;
 import ca.uwri3d.robot.Robot;
 
 /**
  *
  */
 public class BallIn extends Command {
-
-	private XboxController controller = Robot.io.getXboxDrive();
 
 	public BallIn() {
 		// Use requires() here to declare subsystem dependencies
@@ -25,7 +22,7 @@ public class BallIn extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.bigSwing.setSpeed(-0.5);
+		Robot.bigBaller.setSpeed(-0.40);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -44,5 +41,6 @@ public class BallIn extends Command {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }

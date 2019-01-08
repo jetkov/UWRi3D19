@@ -12,7 +12,7 @@ public class LittleFists extends Subsystem {
 	private DoubleSolenoid fistsDoubleSolenoid;
 
 	public LittleFists() {
-		fistsDoubleSolenoid = new DoubleSolenoid(1, Config.SOLENOID_ID_LITTLE_FISTS_A, Config.SOLENOID_ID_LITTLE_FISTS_B);
+		fistsDoubleSolenoid = new DoubleSolenoid(1, 0, 1);
 	}
 	public void initDefaultCommand() {
 		setDefaultCommand(new LittleFistsIn());
