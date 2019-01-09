@@ -40,12 +40,14 @@ public class Robot extends TimedRobot {
 		// Initialize the subsystems
 		littleWhip = new LittleWhip();
 		littleFists = new LittleFists();
-		bigSwing = new BigSwing();
-		biggerSwing = new BiggerSwing();
 		bigBaller = new BigBaller();
 
 		// Initialize the IO
 		io = new IO();
+
+		// Initialize subsystems the depend on IO
+		bigSwing = new BigSwing();
+		biggerSwing = new BiggerSwing();
 
 		// instantiate the command used for the autonomous period
 		autonomousCommand = new Autonomous();

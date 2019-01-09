@@ -22,7 +22,9 @@ public class Config {
 	public final static int SOLENOID_ID_LITTLE_FISTS_B = 1;
 
 	// USB ports
-	public final static int CONTROLLER_PORT = 0; 
+	public final static int DRIVER_CONTROLLER_PORT = 0; 
+	public final static int OPERATOR_CONTROLLER_PORT = 1; 
+
 	
 	// Drive sensitivity percentage modifiers (eg. controller rotate value multiplied by 70%)
 	public final static double THROTTLE_PERCENTAGE = 100, ROTATE_PERCENTAGE = 100;	

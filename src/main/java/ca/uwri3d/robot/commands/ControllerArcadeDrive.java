@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ControllerArcadeDrive extends Command {
 
-	private XboxController controller = Robot.io.getXboxDrive();
+	private XboxController controller = Robot.io.getDriverController();
 	private double lTrig, rTrig, moveValue, rotateValue;
 
 	public ControllerArcadeDrive() {
@@ -49,7 +49,7 @@ public class ControllerArcadeDrive extends Command {
 		rotateValue = (rotateValue * Math.abs(rotateValue)) * (Config.ROTATE_PERCENTAGE / 100);
 
 		// Drive the robot
-		Robot.littleWhip.arcadeDrive(moveValue, rotateValue, true);
+		Robot.littleWhip.arcadeDrive(moveValue, rotateValue, false);
 
 	}
 

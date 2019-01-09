@@ -11,33 +11,36 @@ import ca.uwri3d.robot.Robot;
 public class ControlBigSwing extends Command {
 
 	private XboxController controller;
+	private int controllerAxis;
+	private int boostButton;
 	private double powerMultiplier = 0.40;
 
-	public ControlBigSwing() {
+	public ControlBigSwing(XboxController inController, int inAxis, int inBoostButton) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.bigSwing);
-		requires(Robot.biggerSwing);
+
+		controller = inController;
+		controllerAxis = inAxis;
+		boostButton = inBoostButton;
 	}
 
 	// Called just before this Command runs the first time
 	@Override
-	protected void initialize() {
-		controller = Robot.io.getXboxDrive();
-	}
+	protected void initialize() {}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		if (controller.getRawButtonPressed(9))
+		if (controller.getRawButtonPressed(boostButton))
 		{
 			powerMultiplier = 0.60;
 		}
-		else if (controller.getRawButtonReleased(9))
+		else if (controller.getRawButtonReleased(boostButton))
 		{
 			powerMultiplier = 0.40;
 		}
 
-		Robot.bigSwing.setSpeed(-controller.getRawAxis(1) * powerMultiplier);
+		Robot.bigSwing.setSpeed(-controller.getRawAxis(controllerAxis) * powerMultiplier);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
